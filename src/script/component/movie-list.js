@@ -29,7 +29,16 @@ class MovieList extends HTMLElement {
     }
 
     render() {
-        this.shadowDOM.innerHTML = ``;
+        this.shadowDOM.innerHTML = `
+            <style>
+                :host {
+                    display: grid;
+                    grid-template-columns: auto auto auto auto;
+                    grid-gap: 50px 100px;
+                    padding: 10px;
+                }
+            </style>
+        `;
         this._movies.forEach(
             movie => {
                 const movieItemElement = document.createElement("movie-item");

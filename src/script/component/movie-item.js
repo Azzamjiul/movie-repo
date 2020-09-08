@@ -22,9 +22,11 @@ class MovieItem extends HTMLElement {
                     display: inline-block;
                 }
 
-                .fan-art-club {
+                .movie-image {
+                    max-height= 300px;
+                    max-width= 300px;
+                    height: 100%;
                     width: 100%;
-                    max-height: 300px;
                     object-fit: cover;
                     object-position: center;
                 }
@@ -43,14 +45,16 @@ class MovieItem extends HTMLElement {
                     text-overflow: ellipsis;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 10; /* number of lines to show */
+                    -webkit-line-clamp: 16; /* number of lines to show */
                 }
             </style>
 
-            <img class="fan-art-club" src="${this._movie.fanArt}" alt="Fan Art">
-            <div class="movie-info">
-                <h2>${this._movie.name}</h2>
-                <p>${this._movie.description}</p>
+            <div class='movie'>
+                <img class="movie-image" src="${this._movie.strTeamBadge}" alt="Fan Art">
+                <div class="movie-info">
+                    <h2>${this._movie.strTeam}</h2>
+                    <p>${this._movie.strDescriptionEN}</p>
+                </div>
             </div>
         `;
     }
