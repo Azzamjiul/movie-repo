@@ -34,14 +34,21 @@ class MovieList extends HTMLElement {
                 :host {
                     display: grid;
                     grid-template-columns: auto auto auto auto;
-                    grid-gap: 50px 100px;
+                    grid-gap: 50px;
                     padding: 10px;
                 }
             </style>
         `;
+
         this._movies.forEach(
             movie => {
+                console.log(movie)
                 const movieItemElement = document.createElement("movie-item");
+                if(movie.poster_path === null){
+                    movie.poster_path = 'https://via.placeholder.com/300'
+                }else{
+                    movie.poster_path = 'https://image.tmdb.org/t/p/w780' + movie.poster_path
+                }
                 movieItemElement.movie = movie
                 this.shadowDOM.appendChild(movieItemElement);
             }

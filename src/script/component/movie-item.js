@@ -23,10 +23,9 @@ class MovieItem extends HTMLElement {
                 }
 
                 .movie-image {
-                    max-height= 300px;
-                    max-width= 300px;
-                    height: 100%;
                     width: 100%;
+                    min-height: calc(150px * 1.5);
+                    height: calc(150px * 1.5);
                     object-fit: cover;
                     object-position: center;
                 }
@@ -50,10 +49,10 @@ class MovieItem extends HTMLElement {
             </style>
 
             <div class='movie'>
-                <img class="movie-image" src="${this._movie.strTeamBadge}" alt="Fan Art">
+                <img class="movie-image" src="${this._movie.poster_path}" alt="Fan Art">
                 <div class="movie-info">
-                    <h2>${this._movie.strTeam}</h2>
-                    <p>${this._movie.strDescriptionEN}</p>
+                    <h2>${this._movie.original_title}</h2>
+                    <p>${this._movie.overview}</p>
                 </div>
             </div>
         `;
