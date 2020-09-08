@@ -9,6 +9,15 @@ class AppBar extends HTMLElement {
         this.render()
     }
 
+    set clickEvent(event) {
+        this._clickEvent = event;
+        this.render();
+    }
+
+    get value() {
+       return this.shadowDOM.querySelector("#searchElement").value;
+    }
+
     render() {
         this.shadowDOM.innerHTML = `
             <style>
@@ -80,17 +89,18 @@ class AppBar extends HTMLElement {
                     text-transform: uppercase;
                     border-radius: 5px;
                 }
-
             </style>
 
             <div class='app-bar'>
                 <div class="brand">Movie Database</div>
                 <div class="search-container pull-right">
-                    <input type="search" placeholder="Search Movie">
+                    <input id="searchElement" type="search" placeholder="Search Movie">
                     <button id="searchButtonElement" type="submit">Search</button>
                 </div>
             </div>
         `;
+
+        this.shadowDOM.querySelector("#searchButtonElement").addEventListener("click", this._clickEvent);
     }
 
 }
